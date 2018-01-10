@@ -11,6 +11,8 @@ const int led = D0; // ONBOARD LED D0 WORKS OPPOSITE
 //const int ledPin2 = D2; // Pin
 
 
+boolean isAlarmOn = false;
+
 // Update these with values suitable for your network.
 const char* ssid = "DataSoft_WiFi";
 const char* password = "support123";
@@ -177,6 +179,7 @@ void setAlarmOn(){
 
     digitalWrite(led,HIGH);
     Serial.println("Pin HIGH");
+    isAlarmOn = true;
     
   
 }
@@ -184,7 +187,7 @@ void setAlarmOn(){
 
 void checkTime(){
 
-    if(){
+    while(isAlarmOn){
 
         unsigned long currentTime = millis();
     
@@ -205,5 +208,6 @@ void checkTime(){
 void setAlarmOff(){
     digitalWrite(led,LOW);
     Serial.println("Pin LOW");
+    isAlarmOn = false;
 }
 
